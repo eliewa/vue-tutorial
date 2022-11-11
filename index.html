@@ -6,9 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
   <script src="./assets/js/app.js" defer></script>
+  <link rel="stylesheet" href="./assets/css/main.css">
   <title>Practice</title>
 </head>
 <body>
-  
+  <body>
+    <div id="app">
+      <h1>THE VUE VIEW</h1>
+      <div class="user">
+        <div class="user-information">
+          <h3>{{ username }}</h3>
+        </div>
+        <div class="user-bio" v-if="bio">
+          <em>Bio: </em> {{ bio }}
+        </div>
+      </div>
+      <div class="tweets">
+        <div class="tweet" v-for="tweet in tweets">
+          <h3>{{ username }}</h3>
+          <p>{{ tweet }}</p>
+        </div>
+      </div>
+      <div class="settings">
+        <h2>Settings</h2>
+        <label for="username">Username</label>
+        <input type="text" value="username" placeholder="Username" v-model="username" />
+        <label for="bio">Bio</label>
+        <textarea value="bio" placeholder="Bio" v-model="bio"></textarea>
+        <label for="tweet">New Tweet</label>
+        <div class="new-tweet">
+          <input type="text" value="tweet" placeholder="New Tweet" v-model="newTweet" />
+          <button v-on:click="tweets.push(newTweet)">Add Tweet</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
 </body>
 </html>
